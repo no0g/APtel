@@ -254,30 +254,46 @@
 											<h2>Room Contracts</h2>
 										</div>
 										<div class="card-body">
+                    <?php
+                                    require_once '../../config/config.php';
+                                    $email = $_SESSION['email'];
+                                    
+                                    $check = $mysqli->prepare("SELECT student.firstName, student.lastName, room.name, contract.price, contract.startDate, contract.endDate from contract join student 
+                                                                on student.id = contract.student join room 
+                                                                on contract.room = room.id 
+                                                                where student.email = ? and contract.endDate > now()");
+                                    $check->bind_param('s', $email);
+                                    $check->execute();
+                                    $check->store_result();
+                                    $check->bind_result($firstName,$lastName,$roomname, $price, $startDate,$endDate);
+
+                                    if($check->num_rows > 0){
+                                      while($row = $check->fetch()){
+                              ?>
 											<form >
 												<div class="row">
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="fname">First name</label>
-															<input type="text" class="form-control" placeholder="John">
+															<input type="text" class="form-control" value=<?php echo $firstName ;?> readonly>
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="lname">Last name</label>
-															<input type="text" class="form-control" placeholder="Smith">
+															<input type="text" class="form-control" value=<?php echo $lastName; ?> readonly>
 														</div>
                           </div>
                           <div class="col-sm-6">
 														<div class="form-group">
-															<label for="city">Room ID</label>
-															<input type="text" class="form-control" placeholder="Room ID">
+															<label for="city">Room </label>
+															<input type="text" class="form-control" value=<?php echo $roomname; ?> readonly>
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="city">Price</label>
-															<input type="text" class="form-control" placeholder="Price">
+															<input type="text" class="form-control" placeholder=<?php echo $price; ?> value="RM <?php echo  $price; ?>" readonly >
 														</div>
 													</div>
 													<div class="col-sm-6">
@@ -285,13 +301,13 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label for="State">Start Date</label>
-																	<input type="text" class="form-control" placeholder="Date">
+																	<input type="date" class="form-control" value=<?php echo $startDate; ?> readonly>
 																</div>
 															</div>
 															<div class="col-6">
 																<div class="form-group">
 																	<label for="Zip">End Date</label>
-																	<input type="text" class="form-control" placeholder="Date">
+																	<input type="date" class="form-control" value=<?php echo $endDate; ?> readonly>
 																</div>
 															</div>
 														</div>
@@ -301,9 +317,28 @@
 													<button type="submit" class="btn btn-primary btn-default">Download PDF</button>
 												</div>
 											</form>
-										</div>
-									</div>
-                </div>
+                      <?php } 
+                    } else { ?>
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <div class="card border-0 text-center">
+                              <div class="card-img-wrapper ">
+                                <img src="assets/img/user/u6.jpg" alt="" class="img-fluid rounded-circle">
+                              </div>
+                              <div class="card-body">
+                                <p>
+                                You have no active contract now
+                                </p>
+                                <a class="text-dark pt-4 d-block text-center font-weight-medium font-size-15" >HURRY !!</a>
+                                <span >Book Your Room NOW!!</span>
+                              </div>
+                            </div>
+                          </div>
+                          <?php }?>
+                        </div>
+                      </div>
+                    </div>
 
           
 
