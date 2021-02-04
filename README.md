@@ -3,7 +3,7 @@
 Developed to fulfil GCS and CSS assignment
 
 
-## Depployment
+## Deployment
 Deploy the app using XAMPP, put all files in   
 ```
 /xampp/htdocs/(webname)
