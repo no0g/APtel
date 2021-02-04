@@ -268,53 +268,86 @@
 									<br> Phone: +60129991002
 								</address>
 							</div>
+              <!-- Get user -->
+              <?php
+                             require_once '../../config/config.php';
+                             $email = $_SESSION['email'];
+                             
+                             $check = $mysqli->prepare("SELECT firstName,lastName,contact FROM student WHERE email = ? ");
+                             $check->bind_param('s', $email);
+                             $check->execute();
+                             $check->store_result();
+                             $check->bind_result($firstName,$lastName,$contact);
+                      
+                             if($check->num_rows > 0){
+                              while($row = $check->fetch()){
+
+                  
+                  ?>
 							<div class="col-xl-3 col-lg-4">
 								<p class="text-dark mb-2">To</p>
 								<address>
-									Jane Doe
-									<br> 58 Jamie Ways, North Faye, Q5 5ZP
-									<br> Email: JaneDoe@gmail.com
-									<br> Phone: +91 5264 521 943
+									<?php echo $firstName." ".$lastName; ?>
+									<br> Email: <?php echo $email;?>
+									<br> Phone: <?php echo $contact; ?>
 								</address>
 							</div>
 						</div>
+            <?php } } ?>
 						<table class="table mt-3 table-striped table-responsive table-responsive-large" style="width:100%">
 							<thead>
 								<tr>
-									<th>#</th>
-									<th>Item</th>
-									<th>Description</th>
-									<th>Quantity</th>
-									<th>Unit Cost</th>
-									<th>Total</th>
+									<th>Contract</th>
+									<th>Room Name</th>
+									<th>Room Type</th>
+									<th>Rent</th>
+									<th>Price</th>
+									<th>Overdue</th>
 								</tr>
 							</thead>
 							<tbody>
+              <!-- Get Contract Detail -->
+              <?php
+                             require_once '../../config/config.php';
+                             $email = $_SESSION['email'];
+                             
+                             $check = $mysqli->prepare("SELECT contract.id,room.name,roomtype.name, contract.price, contract.overdue FROM contract join room
+                                                        on room.id = contract.room join roomtype 
+                                                        on room.type = roomtype.id join student
+                                                        on student.id = contract.student WHERE student.email = ? ");
+                             $check->bind_param('s', $email);
+                             $check->execute();
+                             $check->store_result();
+                             $check->bind_result($id,$roomname,$roomtype,$price,$overdue);
+                      
+                             if($check->num_rows > 0){
+                              while($row = $check->fetch()){
+                  ?>
 								<tr>
-									<td>1</td>
-									<td>Premium - En-Suite Single</td>
-									<td>1 year contract</td>
-									<td>1</td>
-									<td>RM 1000</td>
-									<td>RM 1000</td>
+									<td><?php echo $id; ?></td>
+									<td><?php echo $roomname; ?></td>
+									<td><?php echo $roomtype; ?></td>
+									<td>Monthly</td>
+									<td><?php echo $price; ?></td>
+									<td><?php echo $overdue; ?></td>
 								</tr>
+                
 								</tr>
+
 							</tbody>
 						</table>
 						<div class="row justify-content-end">
 							<div class="col-lg-5 col-xl-4 col-xl-3 ml-sm-auto">
 								<ul class="list-unstyled mt-4">
 									<li class="mid pb-3 text-dark"> Subtotal
-										<span class="d-inline-block float-right text-default">RM 1000</span>
-									</li>
-									<li class="mid pb-3 text-dark">Vat(10%)
-										<span class="d-inline-block float-right text-default">RM 100</span>
+										<span class="d-inline-block float-right text-default">RM <?php echo $overdue; ?></span>
 									</li>
 									<li class="pb-3 text-dark">Total
-										<span class="d-inline-block float-right">RM 1100</span>
+										<span class="d-inline-block float-right">RM <?php echo $overdue; ?></span>
 									</li>
 								</ul>
-								<a href="#" class="btn btn-block mt-2 btn-lg btn-primary btn-pill"> Proceed to Payment</a>
+                <?php } } ?>
+								<a href="#" class="btn btn-block mt-2 btn-lg btn-primary btn-pill"> Submit Payment Details</a>
 							</div>
 						</div>
 					</div>
