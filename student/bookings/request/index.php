@@ -366,7 +366,14 @@
                                           <strong>Opss!</strong> You have to wait for your recent booking responded!
                                           <button type="button" class="close" data-dismiss="alert">&times;</button>
                                       </div>
-                                    
+                                      <?php
+                                    } else if ($_GET['message'] == "minimum"){
+                                      ?>
+                                      <div class="alert alert-danger alert-dismissible fade show"
+                                          style="margin-bottom: 30px">
+                                          <strong>HAIYYO!</strong> You have to book atleast for 4 months!
+                                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                      </div>
                                         <?php
                                     } else {
                                         ?>
