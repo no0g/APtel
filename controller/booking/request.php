@@ -15,6 +15,16 @@ if(isset($_POST['submit'])){
         exit();
     }
 
+    if($startDate > $endDate){
+        header("location: ../../student/bookings/request/?message=fail");
+        exit();
+    }
+    if (date('Y-m-d',strtotime($endDate.'-4 month')) < $startDate){
+        header("location: ../../student/bookings/request/?message=minimum");
+        exit();
+    }
+    
+
     //Get student id
     $check = $mysqli->prepare("SELECT student.id FROM student WHERE student.email = ? except select student.id from booking join student on booking.student = student.id WHERE booking.status = 'waiting' ");
     $check->bind_param('s', $email);
