@@ -65,7 +65,7 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="http://127.0.0.1:5500/dist/index.html">
+              <a href="../../">
                 <svg
                   class="brand-icon"
                   xmlns="http://www.w3.org/2000/svg"
