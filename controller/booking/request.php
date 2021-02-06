@@ -11,12 +11,12 @@ if(isset($_POST['submit'])){
     $endDate = $_POST['endDate'];
     
     if($startDate == $endDate){
-        header("location: ../../student/bookings/request/?message=fail");
+        header("location: ../../student/bookings/request/?message=minimum");
         exit();
     }
 
     if($startDate > $endDate){
-        header("location: ../../student/bookings/request/?message=fail");
+        header("location: ../../student/bookings/request/?message=minimum");
         exit();
     }
     if (date('Y-m-d',strtotime($endDate.'-4 month')) < $startDate){
