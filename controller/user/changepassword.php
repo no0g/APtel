@@ -19,38 +19,41 @@ if(isset($_POST['submit'])){
 
     if(!$uppercase || !$lowercase || !$number || strlen($newPassword) < 8) {
     // tell the user something went wrong
-    header("location: ../../student/changepassword/?message=regex");
+        header("location: ../../student/changepassword/?message=regex");
     }
-
-    $check = $mysqli->prepare("SELECT password FROM student WHERE email = ? ");
-    $check->bind_param('s', $email);
-    $check->execute();
-    $check->store_result();
-    $check->bind_result($hash);
-
-    if($check->num_rows == 1){
-        while($check->fetch()){
-            if(password_verify($curPassword,$hash)){
-                $hash = password_hash($newPassword,PASSWORD_DEFAULT);
-                $stmt = $mysqli->prepare("UPDATE student SET password = ? WHERE email = ?");
-                $stmt->bind_param("ss", $hash, $email);
-                $result = $stmt->execute();
-                if($result) {
-                    // Success
-                    header("location: ../../student/changepassword/?message=success");
-                    $stmt->close();
-                } else {
-                    // If Error Occured
-                    header("location: ../../student/changepassword/?message=fail");
-                    $stmt->close();
+    else {
+        $check = $mysqli->prepare("SELECT password FROM student WHERE email = ? ");
+        $check->bind_param('s', $email);
+        $check->execute();
+        $check->store_result();
+        $check->bind_result($hash);
+    
+        if($check->num_rows == 1){
+            while($check->fetch()){
+                if(password_verify($curPassword,$hash)){
+                    $hash = password_hash($newPassword,PASSWORD_DEFAULT);
+                    $stmt = $mysqli->prepare("UPDATE student SET password = ? WHERE email = ?");
+                    $stmt->bind_param("ss", $hash, $email);
+                    $result = $stmt->execute();
+                    if($result) {
+                        // Success
+                        header("location: ../../student/changepassword/?message=success");
+                        $stmt->close();
+                    } else {
+                        // If Error Occured
+                        header("location: ../../student/changepassword/?message=fail");
+                        $stmt->close();
+                    }
+                }
+                else {
+                    header("location: ../../student/changepassword/?message=wrong");
                 }
             }
-            else {
-                header("location: ../../student/changepassword/?message=wrong");
-            }
+    
         }
-
     }
+
+   
 
 }
 
