@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Your Contract</title>
+  <title>Inputs - Sleek Admin Dashboard Template</title>
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet"/>
@@ -65,7 +65,7 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="../../">
+              <a href="http://127.0.0.1:5500/dist/index.html">
                 <svg
                   class="brand-icon"
                   xmlns="http://www.w3.org/2000/svg"
@@ -93,6 +93,7 @@
               <ul class="nav sidebar-inner" id="sidebar-menu">
                 
 
+                
               <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
                       aria-expanded="false" aria-controls="charts">
@@ -171,7 +172,11 @@
                     </ul>
                   </li>      
                 
+
                 
+
+                
+                 
 
                 
               </ul>
@@ -198,147 +203,146 @@
               <div class="navbar-right ">
                 <ul class="nav navbar-nav">
                   <!-- Github Link Button -->
+                  <li class="github-link mr-3">
+
+
+                  </li>
                   
                   <!-- User Account -->
                   <li class="dropdown user-menu">
 
-                  <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <?php
-                          require_once '../../config/config.php';
-                          $email = $_SESSION['email'];
-                          
-                          $check = $mysqli->prepare("SELECT firstName,lastName,image FROM student WHERE email = ? ");
-                          $check->bind_param('s', $email);
-                          $check->execute();
-                          $check->store_result();
-                          $check->bind_result($firstName,$lastName,$image);
-                    
-                          if($check->num_rows > 0){
-                            while($row = $check->fetch()){
-                                // $firstName=$row=['firstName'];
-                                // $lastName=$row['lastName'];
-                                // $image=$row['image'];
+                      <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                      <?php
+                              require_once '../../config/config.php';
+                              $email = $_SESSION['email'];
+                              
+                              $check = $mysqli->prepare("SELECT firstName,lastName,image FROM student WHERE email = ? ");
+                              $check->bind_param('s', $email);
+                              $check->execute();
+                              $check->store_result();
+                              $check->bind_result($firstName,$lastName,$image);
+                        
+                              if($check->num_rows > 0){
+                                while($row = $check->fetch()){
+                                    // $firstName=$row=['firstName'];
+                                    // $lastName=$row['lastName'];
+                                    // $image=$row['image'];
 
-                  ?>
-                    <img src=<?php echo $image?> class="user-image" alt="User Image" />
-                    <span class="d-none d-lg-inline-block"><?php echo $firstName . " " . $lastName; ?> </span>
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-right">
-                    <!-- User image -->
-                    <li class="dropdown-header">
-                      <img src=<?php echo $image; ?> class="img-circle" alt="User Image" />
-                      <div class="d-inline-block">
-                      <?php echo $firstName . " " . $lastName; ?> <small class="pt-1"><?php echo $email;?></small>
-                      </div>
-                    </li>
-                    <?php } $check->close();}?>
-                    <li>
-                        <a href="../changepassword"> <i class="mdi mdi-settings"></i> Change Password </a>
-                    </li>
-                    <li class="dropdown-footer">
-                      <a href="../../controller/logoutAuth.php"> <i class="mdi mdi-logout"></i> Log Out </a>
-                    </li>
-                  </ul>
-                  </li>
+                      ?>
+                        <img src=<?php echo $image?> class="user-image" alt="User Image" />
+                        <span class="d-none d-lg-inline-block"><?php echo $firstName . " " . $lastName; ?> </span>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <!-- User image -->
+                        <li class="dropdown-header">
+                          <img src=<?php echo $image; ?> class="img-circle" alt="User Image" />
+                          <div class="d-inline-block">
+                          <?php echo $firstName . " " . $lastName; ?> <small class="pt-1"><?php echo $email;?></small>
+                          </div>
+                        </li>
+                        <?php } $check->close();}?>
+                        <li>
+                            <a href="../changepassword"> <i class="mdi mdi-settings"></i> Change Password </a>
+                        </li>
+                        <li class="dropdown-footer">
+                          <a href="../../controller/logoutAuth.php"> <i class="mdi mdi-logout"></i> Log Out </a>
+                        </li>
+                      </ul>
+                      </li>
                 </ul>
               </div>
             </nav>
+
+
           </header>
+
+
+
 									<div class="card card-default">
 										<div class="card-header card-header-border-bottom">
 											<h2>Room Contracts</h2>
 										</div>
 										<div class="card-body">
-                    <?php
-                                    require_once '../../config/config.php';
-                                    $email = $_SESSION['email'];
-                                    
-                                    $check = $mysqli->prepare("SELECT student.firstName, student.lastName, room.name, contract.price, contract.startDate, contract.endDate from contract join student 
-                                                                on student.id = contract.student join room 
-                                                                on contract.room = room.id 
-                                                                where student.email = ? and contract.endDate > now()");
-                                    $check->bind_param('s', $email);
-                                    $check->execute();
-                                    $check->store_result();
-                                    $check->bind_result($firstName,$lastName,$roomname, $price, $startDate,$endDate);
-
-                                    if($check->num_rows > 0){
-                                      while($row = $check->fetch()){
-                              ?>
-											<form >
+											<form method="POST" action="../../controller/user/changepassword.php" >
 												<div class="row">
 													<div class="col-sm-6">
 														<div class="form-group">
-															<label for="fname">First name</label>
-															<input type="text" class="form-control" value=<?php echo $firstName ;?> readonly>
+															<label for="fname">Current Password</label>
+															<input type="password" name="currentPassword" class="form-control" placeholder="Current Password">
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="form-group">
-															<label for="lname">Last name</label>
-															<input type="text" class="form-control" value=<?php echo $lastName; ?> readonly>
+															<label for="lname">New Password</label>
+															<input type="password" name="newPassword" class="form-control" placeholder="New Password">
 														</div>
                           </div>
                           <div class="col-sm-6">
-														<div class="form-group">
-															<label for="city">Room </label>
-															<input type="text" class="form-control" value=<?php echo $roomname; ?> readonly>
-														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="form-group">
-															<label for="city">Price</label>
-															<input type="text" class="form-control" placeholder=<?php echo $price; ?> value="RM <?php echo  $price; ?>" readonly >
+															<label for="city">Confirm New Password</label>
+															<input type="password" name="newPasswordConfirm" class="form-control" placeholder="Confirm New Password">
 														</div>
 													</div>
-													<div class="col-sm-6">
-														<div class="row">
-															<div class="col-6">
-																<div class="form-group">
-																	<label for="State">Start Date</label>
-																	<input type="date" class="form-control" value=<?php echo $startDate; ?> readonly>
-																</div>
-															</div>
-															<div class="col-6">
-																<div class="form-group">
-																	<label for="Zip">End Date</label>
-																	<input type="date" class="form-control" value=<?php echo $endDate; ?> readonly>
-																</div>
-															</div>
-														</div>
-													</div>
+													
 												</div>
 												<div class="form-footer pt-5 border-top">
-													<button type="submit" class="btn btn-primary btn-default">Download PDF</button>
+													<button type="submit" name=submit value="change" class="btn btn-primary btn-default">Change Password</button>
 												</div>
+                        <div style="margin-top: 40px">
+                                        <?php if(isset($_GET['message'])) {
+                                    if($_GET['message'] == "regex"){
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible fade show"
+                                            style="margin-bottom: 30px">
+                                            <strong>New password requirements:</strong> 
+                                            <ul>
+                                              <li>- Must be a minimum of 8 characters</li>
+                                              <li>- Must contain at least 1 number</li>
+                                              <li>- Must contain at least one uppercase character</li>
+                                              <li>- Must contain at least one lowercase character</li>
+                                            </ul>
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        </div>
+                                        <?php
+                                    } else if ($_GET['message'] == "notsame"){
+                                      ?>
+                                      <div class="alert alert-danger alert-dismissible fade show"
+                                          style="margin-bottom: 30px">
+                                          <strong>Opss!</strong> Password confirmation not the same
+                                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                      </div>
+                                      <?php
+                                    } else if ($_GET['message'] == "wrong"){
+                                      ?>
+                                      <div class="alert alert-danger alert-dismissible fade show"
+                                          style="margin-bottom: 30px">
+                                          <strong>HAIYYO!</strong> Wrong current password!
+                                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                      </div>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <div class="alert alert-success alert-dismissible fade show"
+                                            style="margin-bottom: 30px">
+                                            <strong>Success!</strong> You have changed your password
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        </div>
+                                        
+                                        <?php
+                                        } 
+                                    } ?>
+                                    </div>
 											</form>
-                      <?php } 
-                    } else { ?>
-
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                            <div class="card border-0 text-center">
-                              <div class="card-img-wrapper ">
-                                <img src="assets/img/user/u6.jpg" alt="" class="img-fluid rounded-circle">
-                              </div>
-                              <div class="card-body">
-                                <p>
-                                You have no active contract now
-                                </p>
-                                <a class="text-dark pt-4 d-block text-center font-weight-medium font-size-15" >HURRY !!</a>
-                                <span >Book Your Room NOW!!</span>
-                              </div>
-                            </div>
-                          </div>
-                          <?php }?>
-                        </div>
-                      </div>
-                    </div>
+										</div>
+									</div>
+</div>
 
           
 
 
-              </div>
+        </div>
             <script>
                 var d = new Date();
                 var year = d.getFullYear();

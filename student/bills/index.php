@@ -233,12 +233,7 @@
                       </li>
                       <?php } $check->close();}?>
                       <li>
-                        <a href="profile.html">
-                          <i class="mdi mdi-account"></i> My Profile
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
+                        <a href="../changepassword"> <i class="mdi mdi-settings"></i> Change Password </a>
                       </li>
                       <li class="dropdown-footer">
                         <a href="../../controller/logoutAuth.php"> <i class="mdi mdi-logout"></i> Log Out </a>
