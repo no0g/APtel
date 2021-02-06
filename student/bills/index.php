@@ -342,9 +342,57 @@
 									</li>
 								</ul>
                 <?php } } ?>
-								<a href="#" class="btn btn-block mt-2 btn-lg btn-primary btn-pill"> Submit Payment Details</a>
+                <form method="POST" action="../../controller/payment/submit.php" enctype='multipart/form-data'>
+                  <label class="form-control-label">Upload Proof of Payment</label>
+                  <input type='file'  class="form-control" name='file' />
+                  <button name="submit" value="submit" class="btn btn-block mt-2 btn-lg btn-primary btn-pill"> Submit Payment Details</button>
+                </form>
 							</div>
 						</div>
+            <div style="margin-top: 40px">
+                                        <?php if(isset($_GET['message'])) {
+                                    if($_GET['message'] == "type"){
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible fade show"
+                                            style="margin-bottom: 30px">
+                                            <strong>Allowed File Types:</strong> 
+                                            <ul>
+                                              <li>- jpg</li>
+                                              <li>- png</li>
+                                              <li>- pdf</li>
+                                              <li>- jpeg</li>
+                                            </ul>
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        </div>
+                                        <?php
+                                    } else if ($_GET['message'] == "waiting"){
+                                      ?>
+                                      <div class="alert alert-danger alert-dismissible fade show"
+                                          style="margin-bottom: 30px">
+                                          <strong>Opss!</strong> Your last submitted is being validated by our team
+                                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                      </div>
+                                      <?php
+                                    } else if ($_GET['message'] == "fail"){
+                                      ?>
+                                      <div class="alert alert-danger alert-dismissible fade show"
+                                          style="margin-bottom: 30px">
+                                          <strong>HAIYYO!</strong> Failed uploading file
+                                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                      </div>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <div class="alert alert-success alert-dismissible fade show"
+                                            style="margin-bottom: 30px">
+                                            <strong>Success!</strong> You have uploaded the file
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        </div>
+                                        
+                                        <?php
+                                        } 
+                                    } ?>
+                                    </div>
 					</div>
 </div>
 
