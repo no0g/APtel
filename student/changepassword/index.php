@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Inputs - Sleek Admin Dashboard Template</title>
-
+  <script src="../../assets/js/passwordchecker.js"></script>
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet"/>
   <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet" />
@@ -37,6 +37,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <script src="../../assets/plugins/nprogress/nprogress.js"></script>
+  
   <?php 
     session_start();
         if(!isset($_SESSION['email']) && $_SESSION['status']!="login"){
@@ -260,7 +261,7 @@
 
 									<div class="card card-default">
 										<div class="card-header card-header-border-bottom">
-											<h2>Room Contracts</h2>
+											<h2>Change Password</h2>
 										</div>
 										<div class="card-body">
 											<form method="POST" action="../../controller/user/changepassword.php" >
@@ -271,10 +272,13 @@
 															<input type="password" name="currentPassword" class="form-control" placeholder="Current Password">
 														</div>
 													</div>
+
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="lname">New Password</label>
-															<input type="password" name="newPassword" class="form-control" placeholder="New Password">
+															<input style="margin-bottom:10px;" type="password" id="pwd" name="newPassword" class="form-control" placeholder="New Password">
+                              <progress style="height:24px;width:100%" id="progress" value="0" max="100">70 </progress>
+                              <span id="progresslabel"></span>
 														</div>
                           </div>
                           <div class="col-sm-6">
@@ -284,7 +288,10 @@
 															<label for="city">Confirm New Password</label>
 															<input type="password" name="newPasswordConfirm" class="form-control" placeholder="Confirm New Password">
 														</div>
-													</div>
+                            </div>
+
+
+
 													
 												</div>
 												<div class="form-footer pt-5 border-top">
@@ -374,6 +381,7 @@
 <script src="../../assets/js/date-range.js"></script>
 <script src="../../assets/js/map.js"></script>
 <script src="../../assets/js/custom.js"></script>
+<script src="../../assets/js/passwordchecker.js"></script>
 
 
 
