@@ -17,6 +17,10 @@ if($check->num_rows == 1) {
 		if(password_verify($password,$hash)){
 			$_SESSION['email'] = $email;
 			$_SESSION['status'] = "login";
+			$stmt = $mysqli->prepare("INSERT INTO log (description) VALUES (?)");
+			$logdesc = "user: ". $email . " Log In";
+			$stmt->bind_param("s",$logdesc);
+			$stmt->execute();
 			header("location:../student/roomtype/");
 		}
 		else{

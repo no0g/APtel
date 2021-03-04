@@ -2,7 +2,7 @@
 // Session Start
 session_start();
  
-include '../config/database.php';
+include '../config/config.php';
 $secretKey = '0x12a4c14BabBE133C066f97e48dc153821cc7C133';
 
 if(isset($_POST['register'])){
@@ -74,6 +74,10 @@ if(isset($_POST['register'])){
                 // $headers .= "Reply-To: noreply@gcs.lol\r\n";
                 // $headers .= "Return-Path: noreply@gcs.lol\r\n";    
                 if(mail($to,$subject,$message, $headers)){
+                    $stmt = $mysqli->prepare("INSERT INTO log (description) VALUES (?)");
+                    $logdesc = "new user: ". $email . " registered";
+                    $stmt->bind_param("s",$logdesc);
+                    $stmt->execute();
                     header("location: ../student/register/index.php?message=success");
                 }else{
                     header("location: ../student/register/index.php?message=email");
