@@ -39,7 +39,7 @@
   <![endif]-->
   <script src="../../assets/plugins/nprogress/nprogress.js"></script>
 </head>
-
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
   <body class="bg-light-gray" id="body">
           <div class="container d-flex flex-column justify-content-between vh-100">
@@ -80,7 +80,13 @@
                                             <button type="button" class="close" data-dismiss="alert">&times;</button>
                                         </div>
                                         <?php
-                                    }
+                                    }else if($_GET['message'] == 'captcha'){?>
+                                      <div class="alert alert-danger alert-dismissible fade show"
+                                        style="margin-bottom: 30px">
+                                        <strong>Opss!</strong> Wrong Captcha!
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    </div>
+                                    <?php }
                                      else {
                                         ?>
                                         <div class="alert alert-success alert-dismissible fade show"
@@ -110,6 +116,7 @@
                       <div class="form-group col-md-12 ">
                         <input type="tel" class="form-control input-lg" name="contact" placeholder="Contact No">
                       </div>
+                      <div class="h-captcha col-md-12" data-sitekey="a4a69630-df8a-4b15-8e77-08d4e887367e"></div>
                       <div class="col-md-12">
                         <div class="d-inline-block mr-3">
                     
