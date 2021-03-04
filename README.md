@@ -1,6 +1,6 @@
 # APU Hostel Management System
 
-Developed to fulfil GCS and CSS assignment
+Developed to fulfil GCS and CSS assignment   
 Status: Ongoing
 
 ## Deployment
