@@ -166,9 +166,9 @@
 							<div class="col-xl-3 col-lg-4">
 								<p class="text-dark mb-2">To</p>
 								<address>
-									<?php echo $firstName." ".$lastName; ?>
-									<br> Email: <?php echo $email;?>
-									<br> Phone: <?php echo $contact; ?>
+									<?php echo htmlspecialchars($firstName)." ". htmlspecialchars($lastName); ?>
+									<br> Email: <?php echo htmlspecialchars($email);?>
+									<br> Phone: <?php echo htmlspecialchars($contact); ?>
 								</address>
 							</div>
 						</div>

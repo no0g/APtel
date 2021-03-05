@@ -148,25 +148,25 @@
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="fname">First name</label>
-															<input type="text" class="form-control" value=<?php echo $firstName ;?> readonly>
+															<input type="text" class="form-control" value=<?php echo htmlspecialchars($firstName) ;?> readonly>
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="lname">Last name</label>
-															<input type="text" class="form-control" value=<?php echo $lastName; ?> readonly>
+															<input type="text" class="form-control" value=<?php echo htmlspecialchars($lastName); ?> readonly>
 														</div>
                           </div>
                           <div class="col-sm-6">
 														<div class="form-group">
 															<label for="city">Room </label>
-															<input type="text" class="form-control" value=<?php echo $roomname; ?> readonly>
+															<input type="text" class="form-control" value=<?php echo htmlspecialchars($roomname); ?> readonly>
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="city">Price</label>
-															<input type="text" class="form-control" placeholder=<?php echo $price; ?> value="RM <?php echo  $price; ?>" readonly >
+															<input type="text" class="form-control" placeholder=<?php echo htmlspecialchars($price); ?> value="RM <?php echo  htmlspecialchars($price); ?>" readonly >
 														</div>
 													</div>
 													<div class="col-sm-6">
@@ -174,13 +174,13 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label for="State">Start Date</label>
-																	<input type="date" class="form-control" value=<?php echo $startDate; ?> readonly>
+																	<input type="date" class="form-control" value=<?php echo htmlspecialchars($startDate); ?> readonly>
 																</div>
 															</div>
 															<div class="col-6">
 																<div class="form-group">
 																	<label for="Zip">End Date</label>
-																	<input type="date" class="form-control" value=<?php echo $endDate; ?> readonly>
+																	<input type="date" class="form-control" value=<?php echo htmlspecialchars($endDate); ?> readonly>
 																</div>
 															</div>
 														</div>

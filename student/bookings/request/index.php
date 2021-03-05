@@ -285,13 +285,13 @@
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="fname">First Name</label>
-															<input type="text" class="form-control"  name="firstName" value=<?php echo htmlspecialchars($firstName)?> placeholder=<?php echo $firstName?> readonly>
+															<input type="text" class="form-control"  name="firstName" value=<?php echo htmlspecialchars($firstName)?> placeholder=<?php echo htmlspecialchars($firstName)?> readonly>
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="lname">Last Name</label>
-															<input type="text" class="form-control"  name="lastName" value=<?php echo htmlspecialchars($lastName)?> placeholder=<?php echo $lastName?> readonly>
+															<input type="text" class="form-control"  name="lastName" value=<?php echo htmlspecialchars($lastName)?> placeholder=<?php echo htmlspecialchars($lastName)?> readonly>
 														</div>
                           </div>
                           <?php } $check->close();}?>

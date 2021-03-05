@@ -30,7 +30,7 @@
     <li class="dropdown-header">
         <img src=<?php echo $image; ?> class="img-circle" alt="User Image" />
         <div class="d-inline-block">
-        <?php echo $firstName . " " . $lastName; ?> <small class="pt-1"><?php echo htmlspecialchars($email);?></small>
+        <?php echo htmlspecialchars($firstName) . " " . htmlspecialchars($lastName); ?> <small class="pt-1"><?php echo htmlspecialchars($email);?></small>
         </div>
     </li>
     <?php } $check->close();}?>
