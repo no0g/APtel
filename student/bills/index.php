@@ -223,7 +223,6 @@
 										<span class="d-inline-block float-right">RM <?php echo $overdue; ?></span>
 									</li>
 								</ul>
-                <?php } } ?>
                 <?php if($overdue != 0){?>
 
                 <form method="POST" action="../../controller/payment/submit.php" enctype='multipart/form-data'>
@@ -232,6 +231,32 @@
                   <button name="submit" value="submit" class="btn btn-block mt-2 btn-lg btn-primary btn-pill"> Submit Payment Details</button>
                 </form>
                 <?php } ?>
+                <?php } } else {?>
+                  <tr>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>Monthly</td>
+									<td>-</td>
+									<td>0</td>
+								</tr>
+                
+								</tr>
+
+							</tbody>
+						</table>
+						<div class="row justify-content-end">
+							<div class="col-lg-5 col-xl-4 col-xl-3 ml-sm-auto">
+								<ul class="list-unstyled mt-4">
+									<li class="mid pb-3 text-dark"> Subtotal
+										<span class="d-inline-block float-right text-default">RM 0</span>
+									</li>
+									<li class="pb-3 text-dark">Total
+										<span class="d-inline-block float-right">RM 0</span>
+									</li>
+								</ul>
+                <?php } ?>
+
 							</div>
 						</div>
             <div style="margin-top: 40px">
