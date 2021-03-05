@@ -232,14 +232,14 @@
                   
                   ?>
                       <img src=<?php echo "../".$image;?> class="user-image" alt="User Image" />
-                      <span class="d-none d-lg-inline-block"><?php echo $firstName . " " . $lastName; ?> </span>
+                      <span class="d-none d-lg-inline-block"><?php echo htmlspecialchars($firstName) . " " . htmlspecialchars($lastName); ?> </span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <!-- User image -->
                       <li class="dropdown-header">
                         <img src=<?php echo "../".$image; ?> class="img-circle" alt="User Image" />
                         <div class="d-inline-block">
-                        <?php echo $firstName . " " . $lastName; ?> <small class="pt-1"><?php echo $email;?></small>
+                        <?php echo htmlspecialchars($firstName) . " " . htmlspecialchars($lastName); ?> <small class="pt-1"><?php echo htmlspecialchars($email);?></small>
                         </div>
                       </li>
                       <?php } $check->close();}?>
@@ -285,13 +285,13 @@
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="fname">First Name</label>
-															<input type="text" class="form-control"  name="firstName" value=<?php echo $firstName?> placeholder=<?php echo $firstName?> readonly>
+															<input type="text" class="form-control"  name="firstName" value=<?php echo htmlspecialchars($firstName)?> placeholder=<?php echo $firstName?> readonly>
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="lname">Last Name</label>
-															<input type="text" class="form-control"  name="lastName" value=<?php echo $lastName?> placeholder=<?php echo $lastName?> readonly>
+															<input type="text" class="form-control"  name="lastName" value=<?php echo htmlspecialchars($lastName)?> placeholder=<?php echo $lastName?> readonly>
 														</div>
                           </div>
                           <?php } $check->close();}?>
