@@ -40,7 +40,7 @@
   
   <?php 
     session_start();
-        if(!isset($_SESSION['email']) && $_SESSION['status']!="login"){
+        if($_SESSION['status']!="login"){
           header("location:../index.php?message=not_login");
        }
     ?>
