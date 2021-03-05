@@ -1,9 +1,9 @@
-# APU Hostel Management System
+# :hotel: APU Hostel Management System
 
 Developed to fulfil GCS and CSS assignment   
-Status: Ongoing
+Status: Ongoing :sunglasses:
 
-## Deployment
+## :computer: Deployment
 Deploy the app using XAMPP, put all files in   
 ```
 /xampp/htdocs/(webname)
@@ -15,25 +15,25 @@ Deploy the app using XAMPP, put all files in
 - Go to http://localhost/(webname)/ 
 
 
-## Developer
+## :smirk: Developer
 - Reza Ahmad Nugroho
 - William Tirtadjaja
 - Kelvin
 
 
 ## Security Controls
-- Audit Logs
-- Separation of Duties (Role)
-- Password Hashing
-- Session Management
-- Password Policy
-- SQL Prepared Statement
-- Input Sanitization
+- Audit Logs :heart:
+- Separation of Duties (Role) :heart:
+- Password Hashing :heart:
+- Session Management :heart:
+- Password Policy :heart:
+- SQL Prepared Statement :heart:
+- Input Sanitization :heart:
 
 ## Security Features
-- Captcha
-- 2 Factor Authentication with Email
-- Email Verification
-- Password Strength Checker
-- Change Password
-- SSL Cert (HTTPS)
+- Captcha :black_heart:
+- 2 Factor Authentication with Email :black_heart:
+- Email Verification :black_heart:
+- Password Strength Checker :black_heart:
+- Change Password :black_heart:
+- SSL Cert (HTTPS) :black_heart:
