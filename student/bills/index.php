@@ -342,11 +342,14 @@
 									</li>
 								</ul>
                 <?php } } ?>
+                <?php if($overdue != 0){?>
+
                 <form method="POST" action="../../controller/payment/submit.php" enctype='multipart/form-data'>
                   <label class="form-control-label">Upload Proof of Payment</label>
-                  <input type='file'  class="form-control" name='file' />
+                  <input type='file'  class="form-control" name='file' required>
                   <button name="submit" value="submit" class="btn btn-block mt-2 btn-lg btn-primary btn-pill"> Submit Payment Details</button>
                 </form>
+                <?php } ?>
 							</div>
 						</div>
             <div style="margin-top: 40px">

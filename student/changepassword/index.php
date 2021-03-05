@@ -269,14 +269,14 @@
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="fname">Current Password</label>
-															<input type="password" name="currentPassword" class="form-control" placeholder="Current Password">
+															<input type="password" name="currentPassword" class="form-control" placeholder="Current Password" required>
 														</div>
 													</div>
 
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="lname">New Password</label>
-															<input style="margin-bottom:10px;" type="password" id="pwd" name="newPassword" class="form-control" placeholder="New Password">
+															<input style="margin-bottom:10px;" type="password" id="pwd" name="newPassword" class="form-control" placeholder="New Password" required>
                               <progress style="height:24px;width:100%" id="progress" value="0" max="100">70 </progress>
                               <span id="progresslabel"></span>
 														</div>
@@ -286,7 +286,7 @@
 													<div class="col-sm-6">
 														<div class="form-group">
 															<label for="city">Confirm New Password</label>
-															<input type="password" name="newPasswordConfirm" class="form-control" placeholder="Confirm New Password">
+															<input type="password" name="newPasswordConfirm" class="form-control" placeholder="Confirm New Password" required>
 														</div>
                             </div>
 

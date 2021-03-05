@@ -99,13 +99,13 @@
                                     } ?>
                                     <!--  -->
               
-              <form role="form" method="POST" action="../controller/loginAuth.php">
+              <form role="form" method="POST" action="../controller/mfaAuth.php">
                 <div class="row">
                   <div class="form-group col-md-12 mb-4">
-                    <input type="email" name="email" class="form-control input-lg" aria-describedby="emailHelp" placeholder="Email">
+                    <input type="email" name="email" class="form-control input-lg" aria-describedby="emailHelp" placeholder="Email" required>
                   </div>
                   <div class="form-group col-md-12 ">
-                    <input type="password" name="password" class="form-control input-lg" placeholder="Password">
+                    <input type="password" name="password" class="form-control input-lg" placeholder="Password" required>
                   </div>
                   <div class="col-md-12">
                     <div class="d-flex my-2 justify-content-between">

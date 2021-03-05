@@ -329,13 +329,13 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label for="State">Start Date</label>
-																	<input name="startDate" type="date" class="form-control" placeholder="Date">
+																	<input name="startDate" type="date" class="form-control" placeholder="Date" required>
 																</div>
 															</div>
 															<div class="col-6">
 																<div class="form-group">
 																	<label for="Zip">End Date</label>
-																	<input name="endDate" type="date" class="form-control" placeholder="Date">
+																	<input name="endDate" type="date" class="form-control" placeholder="Date" required>
 																</div>
 															</div>
 														</div>
