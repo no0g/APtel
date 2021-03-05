@@ -21,7 +21,7 @@ Deploy the app using XAMPP, put all files in
 - Kelvin
 
 
-## Security Controls
+## :closed_lock_with_key: Security Controls
 - Audit Logs :heart:
 - Separation of Duties (Role) :heart:
 - Password Hashing :heart:
@@ -30,7 +30,7 @@ Deploy the app using XAMPP, put all files in
 - SQL Prepared Statement :heart:
 - Input Sanitization :heart:
 
-## Security Features
+## :closed_lock_with_key: Security Features
 - Captcha :black_heart:
 - 2 Factor Authentication with Email :black_heart:
 - Email Verification :black_heart:
