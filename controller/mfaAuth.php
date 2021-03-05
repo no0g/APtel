@@ -7,6 +7,7 @@ include '../config/config.php';
 if(isset($_SESSION['pending'])){
 	$otp = $_SESSION['otp'];
 	$userOtp = $_POST['otp'];
+	$email = $_SESSION['email'];
 	if(!strcmp($otp,$userOtp)){
 		unset($_SESSION['pending']);
 		unset($_SESSION['otp']);
