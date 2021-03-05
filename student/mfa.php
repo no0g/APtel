@@ -114,13 +114,49 @@
                     <div class="d-flex my-2 justify-content-between">
                       <div class="d-inline-block mr-3">
                 
-                    <button type="submit" name="login" value="Submit" class="btn btn-lg btn-primary btn-block mb-4">Submit</button>
+                    <button id="button" type="submit" onclick="myFunction()" name="login" value="Submit" class="btn btn-lg btn-primary btn-block mb-4">Submit</button>
                     
                     
                     <p>Check Your Email!</p>
                   </div>
+                  
                 </div>
               </form>
+              <div>OTP invalid in <span id="time">00:30</span> seconds!</div>
+              <script>
+                  window.onload = function(){
+                      var button = document.getElementById('button');
+
+                      setTimeout(()=>{ button.form.submit(); }, 10000);
+                  }
+              </script>
+              <script>
+              function startTimer(duration, display) {
+                var timer = duration, minutes, seconds;
+                  setInterval(function () {
+                      minutes = parseInt(timer / 60, 10);
+                      seconds = parseInt(timer % 60, 10);
+
+                      minutes = minutes < 10 ? "0" + minutes : minutes;
+                      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                      display.textContent = minutes + ":" + seconds;
+
+                      if (--timer < 0) {
+                          timer = duration;
+                      }
+                  }, 1000);
+              }
+
+              window.onload = function () {
+                  var fiveMinutes = 30,
+                      display = document.querySelector('#time');
+                  startTimer(fiveMinutes, display);
+                  var button = document.getElementById('button');
+                  
+                  setTimeout(()=>{ button.form.submit(); }, 30000);
+              };
+              </script>
             </div>
           </div>
         </div>
