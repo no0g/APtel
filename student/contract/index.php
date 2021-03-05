@@ -131,16 +131,16 @@
                                     require_once '../../config/config.php';
                                     $email = $_SESSION['email'];
                                     
-                                    $check = $mysqli->prepare("SELECT student.firstName, student.lastName, room.name, contract.price, contract.startDate, contract.endDate from contract join student 
+                                    $check = $mysqli->prepare("SELECT contract.id,student.firstName, student.lastName, room.name, contract.price, contract.startDate, contract.endDate from contract join student 
                                                                 on student.id = contract.student join room 
                                                                 on contract.room = room.id 
                                                                 where student.email = ? and contract.endDate > now()");
                                     $check->bind_param('s', $email);
                                     $check->execute();
                                     $check->store_result();
-                                    $check->bind_result($firstName,$lastName,$roomname, $price, $startDate,$endDate);
+                                    $check->bind_result($id,$firstName,$lastName,$roomname, $price, $startDate,$endDate);
 
-                                    if($check->num_rows > 0){
+                                    if($check->num_rows == 1){
                                       while($row = $check->fetch()){
                               ?>
 											<form >
@@ -186,10 +186,13 @@
 														</div>
 													</div>
 												</div>
-												<div class="form-footer pt-5 border-top">
-													<button type="submit" class="btn btn-primary btn-default">Download PDF</button>
-												</div>
+
 											</form>
+                      <div class="form-footer pt-5 border-top">
+                          <a href="../../controller/pdf/generatecontract.php?id=<?php echo $id?>" download>
+													<button type="submit" class="btn btn-primary btn-default" href="../../controller/pdf/generatecontract.php?id=<?php echo $id ?>">Download PDF</button>
+                          </a>
+                        </div>
                       <?php } 
                     } else { ?>
 
