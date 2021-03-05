@@ -27,8 +27,21 @@ if(isset($_SESSION['pending'])){
 		$logdesc = "user: ". $email . " Log In Failed";
 		$stmt->bind_param("s",$logdesc);
 		$stmt->execute();
-		session_destroy();
-		header("location:../student/?=fail");
+
+		//send email notif
+		ini_set( 'display_errors', 1 );   
+		error_reporting( E_ALL );    
+		
+		$to = "$email";    
+		$from= "noreply@hostel.apu.edu.my";
+		$subject = "Suspicious Activity from Your Account";    
+		$message = "There was a Login Attempt to your account, if it was not you try to change the password to secure your account";   
+		$headers = "From:" . $from . "\r\n";
+		if(mail($to,$subject,$message, $headers)){
+			session_destroy();
+			header("location:../student/?=fail");
+		}
+		
 	}
 
 } else{
