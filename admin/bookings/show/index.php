@@ -192,15 +192,15 @@
                                       while($row = $check->fetch()){
                               ?>
                           <tr>
-                            <td ><?php echo " ".$id ; ?></td>
+                            <td ><?php echo " ".htmlspecialchars($id) ; ?></td>
                             <td >
-                              <a class="text-dark"> <?php echo $firstName.' '.$lastName ; ?></a>
+                              <a class="text-dark"> <?php echo htmlspecialchars($firstName).' '.htmlspecialchars($lastName) ; ?></a>
                             </td>
                             <td >
-                              <a class="text-dark"> <?php echo $roomtype ; ?></a>
+                              <a class="text-dark"> <?php echo htmlspecialchars($roomtype) ; ?></a>
                             </td>
-                            <td class="d-none d-md-table-cell"><?php echo $startDate ; ?></td>
-                            <td class="d-none d-md-table-cell"><?php echo $endDate ; ?></td>
+                            <td class="d-none d-md-table-cell"><?php echo htmlspecialchars($startDate) ; ?></td>
+                            <td class="d-none d-md-table-cell"><?php echo htmlspecialchars($endDate) ; ?></td>
                             <td >
                             <?php
                                 if(strcmp($status,'waiting') == 0){?>
@@ -218,11 +218,11 @@
                                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
                                   <li class="dropdown-item">
                                     <a onClick="return confirm('Are you sure want to accept this booking ?')"
-                                      href="../../../controller/admin/bookings/accept.php?id=<?php echo $id;?>">Accept</a>
+                                      href="../../../controller/admin/bookings/accept.php?id=<?php echo htmlspecialchars($id);?>">Accept</a>
                                   </li>
                                   <li class="dropdown-item">
                                     <a onClick="return confirm('Are you sure want to reject this booking ?')"
-                                      href="../../../controller/admin/bookings/reject.php?id=<?php echo $id;?>">Reject</a>
+                                      href="../../../controller/admin/bookings/reject.php?id=<?php echo htmlspecialchars($id);?>">Reject</a>
                                   </li>
                                 </ul>
                               <?php } ?>
