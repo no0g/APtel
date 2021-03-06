@@ -156,6 +156,7 @@
                         <thead>
                           <tr>
                             <th>Booking ID</th>
+                            <th>Student Name</th>
                             <th>Room Type</th>
                             
                             <th class="d-none d-md-table-cell">Start Date</th>
@@ -213,7 +214,7 @@
                             </td>
                             <td class="text-right">
                               <div class="dropdown show d-inline-block widget-dropdown">
-                              <?php if(strcmp($status,'waiting') == 0 || strcmp($status,'rejected') == 0 ){?>
+                              <?php if(strcmp($status,'waiting') == 0  ){?>
                                 <a class="dropdown-toggle icon-burger-mini" href="" role="button" id="dropdown-recent-order1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
                                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
                                   <li class="dropdown-item">
