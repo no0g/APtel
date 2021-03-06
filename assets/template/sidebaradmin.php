@@ -32,7 +32,7 @@
                       <div class="sub-menu">
  
                             <li >
-                              <a class="sidenav-item-link" href="booking.html">
+                              <a class="sidenav-item-link" href="../../bookings/show/">
                                 <span class="nav-text">Explore Bookings</span>
                               </a>
                             </li> 
