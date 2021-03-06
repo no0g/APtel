@@ -51,7 +51,7 @@
                       <div class="sub-menu">
  
                             <li >
-                              <a class="sidenav-item-link" href="contract.html">
+                              <a class="sidenav-item-link" href="../../contract/show/">
                                 <span class="nav-text">Explore Contracts</span>
                               </a>
                             </li> 
@@ -70,7 +70,7 @@
                       <div class="sub-menu">
  
                             <li >
-                              <a class="sidenav-item-link" href="payment.html">
+                              <a class="sidenav-item-link" href="../../payment/show/">
                                 <span class="nav-text">Explore Payments</span>
                               </a>
                             </li> 
@@ -89,7 +89,7 @@
                       <div class="sub-menu">
  
                             <li >
-                              <a class="sidenav-item-link" href="roomtype.html">
+                              <a class="sidenav-item-link" href="../../roomtype/show/">
                                 <span class="nav-text">Explore Room Types</span>
                               </a>
                             </li> 
@@ -108,7 +108,7 @@
                       <div class="sub-menu">
  
                             <li >
-                              <a class="sidenav-item-link" href="room.html">
+                              <a class="sidenav-item-link" href="../../room/show/">
                                 <span class="nav-text">Explore Rooms</span>
                               </a>
                             </li> 
