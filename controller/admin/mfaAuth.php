@@ -17,7 +17,7 @@ if(isset($_SESSION['adminpending'])){
 		$logdesc = "admin: ". $email . " Log In Success";
 		$stmt->bind_param("s",$logdesc);
 		$stmt->execute();
-		$_SESSION['status']="login";
+		$_SESSION['status']="admin";
 		header("location:../../admin/roomtype/");
 	} else{
 		unset($_SESSION['email']);
@@ -39,7 +39,7 @@ if(isset($_SESSION['adminpending'])){
 		$headers = "From:" . $from . "\r\n";
 		if(mail($to,$subject,$message, $headers)){
 			session_destroy();
-			header("location:../../admin/?=fail");
+			header("location:../../admin/?message=fail");
 		}
 		
 	}

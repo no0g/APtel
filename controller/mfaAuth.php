@@ -39,7 +39,7 @@ if(isset($_SESSION['pending'])){
 		$headers = "From:" . $from . "\r\n";
 		if(mail($to,$subject,$message, $headers)){
 			session_destroy();
-			header("location:../student/?=fail");
+			header("location:../student/?message=fail");
 		}
 		
 	}
