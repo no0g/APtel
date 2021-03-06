@@ -29,6 +29,7 @@ Deploy the app using XAMPP, put all files in
 - Password Policy :heart:
 - SQL Prepared Statement :heart:
 - Input Sanitization :heart:
+- Email Format Filter
 
 ## :closed_lock_with_key: Security Features
 - Captcha :black_heart:
