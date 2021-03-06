@@ -327,13 +327,13 @@
 															<div class="col-6">
 																<div class="form-group">
 																	<label for="State">Start Date</label>
-																	<input name="startDate" type="date" class="form-control" placeholder="Date" required>
+																	<input name="startDate" type="date" min="<?php echo date("Y-m-d")?>"class="form-control" placeholder="Date" required>
 																</div>
 															</div>
 															<div class="col-6">
 																<div class="form-group">
 																	<label for="Zip">End Date</label>
-																	<input name="endDate" type="date" class="form-control" placeholder="Date" required>
+																	<input name="endDate" type="date" min="<?php echo date("Y-m-d",strtotime('+4 months'))?>" class="form-control" placeholder="Date" required>
 																</div>
 															</div>
 														</div>
