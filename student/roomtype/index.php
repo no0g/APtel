@@ -244,7 +244,9 @@
         </div>
       </div>
     </div>
-
+    <script>
+NProgress.done();
+</script>
     
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCn8TFXGg17HAUcNpkwtxxyT9Io9B_NcM" defer></script>
 <script src="../../assets/plugins/jquery/jquery.min.js"></script>
