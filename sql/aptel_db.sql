@@ -2,8 +2,8 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 04, 2021 at 09:07 AM
+-- Host: 127.0.0.1:9001
+-- Generation Time: Mar 07, 2021 at 05:46 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `firstName` varchar(1000) NOT NULL,
   `lastName` varchar(1000) NOT NULL,
-  `image` varchar(1000) NOT NULL,
+  `image` varchar(1000) NOT NULL DEFAULT '../../assets/user/image/default.png',
   `staffNumber` varchar(1000) NOT NULL,
   `email` varchar(1000) NOT NULL,
   `contact` varchar(1000) NOT NULL,
@@ -69,12 +69,17 @@ CREATE TABLE `contract` (
   `overdue` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `contract`
+-- Table structure for table `log`
 --
 
-INSERT INTO `contract` (`id`, `student`, `room`, `startDate`, `endDate`, `price`, `overdue`) VALUES
-(1, 20, 1, '2021-02-03', '2021-02-26', 1520, 1520);
+CREATE TABLE `log` (
+  `id` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -86,7 +91,8 @@ CREATE TABLE `payment` (
   `id` int(11) NOT NULL,
   `contract` int(11) NOT NULL,
   `file` varchar(1000) NOT NULL,
-  `status` varchar(1000) NOT NULL
+  `amount` int(11) NOT NULL,
+  `status` varchar(1000) NOT NULL DEFAULT 'waiting'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -100,16 +106,6 @@ CREATE TABLE `room` (
   `name` varchar(1000) NOT NULL,
   `type` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `room`
---
-
-INSERT INTO `room` (`id`, `name`, `type`) VALUES
-(1, 'SPS1', 1),
-(2, 'PS1', 2),
-(3, 'SPT1', 3),
-(4, 'SPS2', 1);
 
 -- --------------------------------------------------------
 
@@ -125,15 +121,6 @@ CREATE TABLE `roomtype` (
   `image` varchar(1000) NOT NULL,
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `roomtype`
---
-
-INSERT INTO `roomtype` (`id`, `name`, `size`, `Description`, `image`, `price`) VALUES
-(1, 'Super Premium - En-Suite Single', '(140+ Sqft - Larger room with fridge and table lamp)', 'Best Room here', '../../assets/img/elements/1.jpg', 1520),
-(2, 'Premium - En-Suite Single', '-', 'Single ', '../../assets/img/elements/2.jpg', 1000),
-(3, 'Super Premium - En-Suite Twin', '(240+ Sqft - Larger room with fridge and table lamp)', 'Big for two', '../../assets/img/elements/3.jpg', 1320);
 
 -- --------------------------------------------------------
 
@@ -151,15 +138,6 @@ CREATE TABLE `student` (
   `contact` varchar(1000) NOT NULL,
   `password` varchar(10000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `student`
---
-
-INSERT INTO `student` (`id`, `firstName`, `lastName`, `tpnumber`, `image`, `email`, `contact`, `password`) VALUES
-(4, 'Reza', 'Nugroho', 'tp048892', '', 'tp048812@mail.apu.edu.my', '0147343759', '0hHWucZ1'),
-(18, 'Reza', 'Nugroho', 'TP048892', '', 'tp048892@mail.apu.edu.my', '0147343759', 'VY1M(rIc'),
-(20, 'Reza', 'Nugroho', 'tp048762', '../../assets/user/image/default.png', 'tp048762@mail.apu.edu.my', '0147343759', '$2y$10$MznLL/nbA3ZAgWUgQGlHJuxF9RHWXHhnkgoLcsPRT6DbxoQ6x6CeO');
 
 --
 -- Indexes for dumped tables
@@ -188,9 +166,16 @@ ALTER TABLE `contract`
   ADD KEY `room` (`room`);
 
 --
+-- Indexes for table `log`
+--
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `contract` (`contract`);
 
 --
@@ -226,31 +211,43 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `contract`
 --
 ALTER TABLE `contract`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `log`
+--
+ALTER TABLE `log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roomtype`
 --
 ALTER TABLE `roomtype`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
