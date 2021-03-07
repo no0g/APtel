@@ -162,28 +162,37 @@
                         $total_rows = mysqli_fetch_array($total_pages_sql)[0];
                         $total_pages = ceil($total_rows / $no_of_records_per_page);
 
-                        $check = $mysqli->prepare("select distinct roomtype.name,roomtype.size,roomtype.image,roomtype.price,roomtype.Description from room join roomtype
-                        on roomtype.id =room.type where room.id in (SELECT room.id FROM `contract` right join room on contract.room = room.id 
-                        where contract.id IS NULL 
-                        or contract.endDate < now()
-                        EXCEPT 
-                        SELECT room.id FROM `contract` right join room on contract.room = room.id 
-                        where contract.endDate > now()) LIMIT $offset, $no_of_records_per_page");
+                        $check = $mysqli->prepare("select distinct roomtype.id,roomtype.name,roomtype.size,roomtype.image,roomtype.price,roomtype.Description from room right join roomtype
+                        on roomtype.id =room.type LIMIT $offset, $no_of_records_per_page");
                         
                         $check->execute();
                         $check->store_result();
-                        $check->bind_result($name,$size,$image,$price,$description);
+                        $check->bind_result($roomtypeid,$name,$size,$image,$price,$description);
                         
                         if($check->num_rows > 0){
                           while($row = $check->fetch()){
 
                   ?>
 										<div class="card">
-											<img class="card-img-top" src=<?php echo $image?> alt="Card image cap">
+											<img class="card-img-top" src="../../uploads/room/<?php echo htmlspecialchars($image)?>" alt="Card image cap">
 											<div class="card-body">
-												<h5 class="card-title text-primary"><?php echo $name?></h5>
-												<p class="card-text pb-3"><?php echo $size?> </p>
+												<h5 class="card-title text-primary"><?php echo htmlspecialchars($name)?></h5>
+												<p class="card-text "><?php echo htmlspecialchars($size)?> </p>
                         <p class="card-text pb-3"><?php echo $description?> </p>
+                            <?php            
+                            $stmt = $mysqli->prepare("select count(*) as sum from room left join contract ON
+                            contract.room = room.id 
+                            where room.type = ? and (contract.endDate < now() or contract.endDate is null) ");
+                            $stmt->bind_param('s',$roomtypeid);
+                            $stmt->execute();
+                            $stmt->store_result();
+                            $stmt->bind_result($sum);
+                            
+                            if($stmt->num_rows == 1 ){
+                                while($row = $stmt->fetch()){ ?>
+                              <p class="card-text pb-3"><?php echo "Available rooms: "."<b>".$sum."</b>";?> </p>
+                        <?php } }?>
+
                           <p> RM <?php echo $price?></p>
 												<p class="card-text">
                           <a href="../bookings/request/" class="btn btn-outline-primary">Book Now!</a>
@@ -214,7 +223,7 @@
                                 <nav class=" justify-content-center d-flex">
                                     <ul class="pagination">
                                         <li class="page-item">
-                                            <a href="?page=1" class="page-link"
+                                            <a href="?pageno=1" class="page-link"
                                                 aria-label="Previous">
                                                 <span aria-hidden="true">
                                                     <span class="mdi mdi-chevron-left" ></span>
