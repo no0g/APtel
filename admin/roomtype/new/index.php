@@ -169,7 +169,7 @@
 													</div>
 												</div>             
                         <div class="form-footer pt-5 border-top">                      
-													<button onClick="return confirm('Are you sure want to edit this room type ?');" type="submit" name="add" value="edit" class="btn btn-primary btn-default">Add Room Type</button>
+													<button onClick="return confirm('Are you sure want to add this room type ?');" type="submit" name="add" value="edit" class="btn btn-primary btn-default">Add Room Type</button>
                         </div>
                         <div style="margin-top: 40px">
                                         <?php if(isset($_GET['message'])) {
@@ -186,7 +186,7 @@
                                       ?>
                                       <div class="alert alert-success alert-dismissible fade show"
                                           style="margin-bottom: 30px">
-                                          <strong>Success!</strong> You have edited student data!
+                                          <strong>Success!</strong> You have added room type!
                                           <button type="button" class="close" data-dismiss="alert">&times;</button>
                                       </div>
                                       <?php

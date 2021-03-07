@@ -4,7 +4,7 @@
                   <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#students"
                       aria-expanded="false" aria-controls="students">
-                      <i class="mdi mdi-chart-pie"></i>
+                      <i class="mdi mdi-account-group"></i>
                       <span class="nav-text">Students</span> <b class="caret"></b>
                     </a>
                     <ul  class="collapse"  id="students"
@@ -24,7 +24,7 @@
                   <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#bookings"
                       aria-expanded="false" aria-controls="bookings">
-                      <i class="mdi mdi-chart-pie"></i>
+                      <i class="mdi mdi-note-plus-outline"></i>
                       <span class="nav-text">Bookings</span> <b class="caret"></b>
                     </a>
                     <ul  class="collapse"  id="bookings"
@@ -43,7 +43,7 @@
                   <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#contract"
                       aria-expanded="false" aria-controls="contract">
-                      <i class="mdi mdi-chart-pie"></i>
+                      <i class="mdi mdi-card-text-outline"></i>
                       <span class="nav-text">Contracts</span> <b class="caret"></b>
                     </a>
                     <ul  class="collapse"  id="contract"
@@ -62,7 +62,7 @@
                   <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#payment"
                       aria-expanded="false" aria-controls="payment">
-                      <i class="mdi mdi-chart-pie"></i>
+                      <i class="mdi mdi-tag"></i>
                       <span class="nav-text">Payments</span> <b class="caret"></b>
                     </a>
                     <ul  class="collapse"  id="payment"
@@ -81,7 +81,7 @@
                   <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#type"
                       aria-expanded="false" aria-controls="type">
-                      <i class="mdi mdi-chart-pie"></i>
+                      <i class="mdi mdi-hotel"></i>
                       <span class="nav-text">Room Type</span> <b class="caret"></b>
                     </a>
                     <ul  class="collapse"  id="type"
@@ -105,7 +105,7 @@
                   <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#room"
                       aria-expanded="false" aria-controls="room">
-                      <i class="mdi mdi-chart-pie"></i>
+                      <i class="mdi mdi-bed-empty"></i>
                       <span class="nav-text">Rooms</span> <b class="caret"></b>
                     </a>
                     <ul  class="collapse"  id="room"

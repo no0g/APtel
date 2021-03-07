@@ -35,7 +35,7 @@
     </li>
     <?php } $check->close();}?>
     <li>
-        <a href="../changepassword"> <i class="mdi mdi-settings"></i> Change Password </a>
+        <a href="../../changepassword"> <i class="mdi mdi-settings"></i> Change Password </a>
     </li>
     <li class="dropdown-footer">
         <a href="../../../controller/logoutAuth.php"> <i class="mdi mdi-logout"></i> Log Out </a>

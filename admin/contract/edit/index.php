@@ -221,9 +221,9 @@
                         
                         <div class="form-footer pt-5 border-top">
                           
-													<button onClick="return confirm('Are you sure want to edit this student account ?');" type="submit" name="edit" value="edit" class="btn btn-primary btn-default">Edit Contract Data</button>
+													<button onClick="return confirm('Are you sure want to edit this contract ?');" type="submit" name="edit" value="edit" class="btn btn-primary btn-default">Edit Contract Data</button>
                           
-                          <a onClick="return confirm('Are you sure want to delete this student account ?');" href="../../../controller/admin/contract/delete.php?id=<?php echo $id?>">
+                          <a onClick="return confirm('Are you sure want to delete this contract ?');" href="../../../controller/admin/contract/delete.php?id=<?php echo $id?>">
                           <button type="button" value="remove"  class="btn btn-primary btn-danger " style="float: right;">Remove Contract</button>
 												  </a>
                         </div>
