@@ -81,7 +81,7 @@
                     $to = "$studentemail";    
                     $from= "noreply@hostel.apu.edu.my";
                     $subject = "Booking Accepted";    
-                    $message = "Your Booking with Booking ID = ".$id." has accepted! \nCheck your new contract here: https://127.0.0.1/gcs/student/contract";   
+                    $message = "Your Booking with Booking ID = ".$id." has accepted! \nCheck your new contract here: https://127.0.0.1:8443/student/contract";   
                     $headers = "From:" . $from . "\r\n";
                     if(mail($to,$subject,$message, $headers)){
                         
