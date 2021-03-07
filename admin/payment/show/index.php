@@ -226,11 +226,11 @@
                                 <a class="dropdown-toggle icon-burger-mini" href="" role="button" id="dropdown-recent-order1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
                                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
                                   <li class="dropdown-item">
-                                    <a onClick="return confirm('Are you sure want to accept this booking ?')"
+                                    <a onClick="return confirm('Are you sure want to accept this payment ?')"
                                       href="../../../controller/admin/payment/accept.php?id=<?php echo htmlspecialchars($id);?>">Accept</a>
                                   </li>
                                   <li class="dropdown-item">
-                                    <a onClick="return confirm('Are you sure want to reject this booking ?')"
+                                    <a onClick="return confirm('Are you sure want to reject this payment ?')"
                                       href="../../../controller/admin/payment/reject.php?id=<?php echo htmlspecialchars($id);?>">Reject</a>
                                   </li>
                                 </ul>
