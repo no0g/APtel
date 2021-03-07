@@ -223,10 +223,15 @@
 										<span class="d-inline-block float-right">RM <?php echo $overdue; ?></span>
 									</li>
 								</ul>
-                <?php if($overdue != 0){?>
+                <?php if($overdue > 0){?>
 
                 <form method="POST" action="../../controller/payment/submit.php" enctype='multipart/form-data'>
-                  <label class="form-control-label">Upload Proof of Payment</label>
+                  <h3>Upload Proof of Payment</h3>
+                  
+                  <label class="form-control-label">Amount</label>
+                  <input type='number'  class="form-control" name='amount' required>
+
+                  <label class="form-control-label">File</label>
                   <input type='file'  class="form-control" name='file' required>
                   <button name="submit" value="submit" class="btn btn-block mt-2 btn-lg btn-primary btn-pill"> Submit Payment Details</button>
                 </form>

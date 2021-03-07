@@ -4,6 +4,7 @@ session_start();
 include '../../config/config.php';
 if(isset($_POST['submit'])){
     $email = $_SESSION['email'];
+    $amount = $_POST['amount'];
     $targetDir = "../../uploads/payment/";
     $fileName = basename($_FILES["file"]["name"]);
     $targetFilePath = $targetDir . $fileName;
@@ -33,8 +34,8 @@ if(isset($_POST['submit'])){
                     $allowTypes = array('jpg','png','jpeg','pdf');
                     if(in_array($fileType, $allowTypes)){
                         if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
-                            $stmt = $mysqli->prepare("INSERT INTO payment (contract, file) VALUES ( ?, ?)");
-                            $stmt->bind_param("ss", $id, $fileName);
+                            $stmt = $mysqli->prepare("INSERT INTO payment (contract, file, amount) VALUES ( ?,?, ?)");
+                            $stmt->bind_param("sss", $id, $fileName, $amount);
                             $result = $stmt->execute();
                             if($result) {
                                 // Success
