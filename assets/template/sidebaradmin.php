@@ -87,7 +87,12 @@
                     <ul  class="collapse"  id="type"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">
- 
+
+                            <li >
+                              <a class="sidenav-item-link" href="../../roomtype/new/">
+                                <span class="nav-text">Add New Room Types</span>
+                              </a>
+                            </li> 
                             <li >
                               <a class="sidenav-item-link" href="../../roomtype/show/">
                                 <span class="nav-text">Explore Room Types</span>
@@ -106,7 +111,11 @@
                     <ul  class="collapse"  id="room"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">
- 
+                            <li >
+                              <a class="sidenav-item-link" href="../../room/new/">
+                                <span class="nav-text">Add New Room </span>
+                              </a>
+                            </li> 
                             <li >
                               <a class="sidenav-item-link" href="../../room/show/">
                                 <span class="nav-text">Explore Rooms</span>
