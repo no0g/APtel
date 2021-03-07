@@ -99,16 +99,30 @@
                                         } 
                                     } ?>
                    </div>
+                                   <?php
+                                        $firstname ="";
+                                        $lastname ="";
+                                        $email = "";
+                                        if(isset($_GET['gas'])){
+                                            $firstname = $_GET['firstname'];
+                                            $lastname = $_GET['lastname'];
+                                            $email = $_GET['email'];
+                                        } else {
+                                            $firstname = "";
+                                            $lastname = "";
+                                            $email = "";
+                                        }
+                                   ?>
                   <form role="form" method=POST action="../../controller/register.php">
                     <div class="row">
                       <div class="form-group col-md-12 mb-4">
-                        <input type="text" class="form-control input-lg" name="firstname" aria-describedby="nameHelp" placeholder="First Name" required>
+                        <input type="text" class="form-control input-lg" value="<?php echo htmlspecialchars($firstname) ?>" name="firstname" aria-describedby="nameHelp" placeholder="First Name" required>
                       </div>
                       <div class="form-group col-md-12 mb-4">
-                        <input type="text" class="form-control input-lg" name="lastname" aria-describedby="nameHelp" placeholder="Last Name" required>
+                        <input type="text" class="form-control input-lg"  value="<?php echo htmlspecialchars($lastname) ?>" name="lastname" aria-describedby="nameHelp" placeholder="Last Name" required>
                       </div>
                       <div class="form-group col-md-12 mb-4">
-                        <input type="email" class="form-control input-lg" name="email" aria-describedby="emailHelp" placeholder="TP email" required>
+                        <input type="email" class="form-control input-lg"  value="<?php echo htmlspecialchars($email) ?>" name="email" aria-describedby="emailHelp" placeholder="TP email" required>
                       </div>
                       <div class="form-group col-md-12 ">
                         <input type="text" class="form-control input-lg" name="tpnumber" placeholder="TP Number (TPXXX)" required>
