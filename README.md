@@ -37,5 +37,4 @@ Deploy the app using XAMPP, put all files in
 - Email Verification :black_heart:
 - Password Strength Checker :black_heart:
 - Change Password :black_heart:
-- SSL Cert (HTTPS) :black_heart:
 - Failed Login Attempt Email Notificaton :black_heart:
