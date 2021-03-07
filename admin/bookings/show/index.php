@@ -181,13 +181,13 @@
                                     $total_rows = mysqli_fetch_array($total_pages_sql)[0];
                                     $total_pages = ceil($total_rows / $no_of_records_per_page);
 
-                                    $check = $mysqli->prepare("select student.firstName, student.lastName,booking.id, roomtype.name, booking.startDate, booking.endDate, booking.status from booking join roomtype
+                                    $check = $mysqli->prepare("select student.id,student.firstName, student.lastName,booking.id, roomtype.name, booking.startDate, booking.endDate, booking.status from booking join roomtype
                                     on roomtype.id = booking.roomtype join student ON
                                     booking.student = student.id order by  (select FIELD(status, 'waiting', 'rejected', 'accepted') ) LIMIT $offset, $no_of_records_per_page");
                                     
                                     $check->execute();
                                     $check->store_result();
-                                    $check->bind_result($firstName,$lastName,$id,$roomtype,$startDate, $endDate, $status);
+                                    $check->bind_result($studentid,$firstName,$lastName,$id,$roomtype,$startDate, $endDate, $status);
 
                                     if($check->num_rows > 0){
                                       while($row = $check->fetch()){
@@ -195,7 +195,7 @@
                           <tr>
                             <td ><?php echo " ".htmlspecialchars($id) ; ?></td>
                             <td >
-                              <a class="text-dark"> <?php echo htmlspecialchars($firstName).' '.htmlspecialchars($lastName) ; ?></a>
+                              <a href="../../../admin/student/edit/?id=<?php echo $studentid?>" class="text-dark"> <?php echo htmlspecialchars($firstName).' '.htmlspecialchars($lastName) ; ?></a>
                             </td>
                             <td >
                               <a class="text-dark"> <?php echo htmlspecialchars($roomtype) ; ?></a>

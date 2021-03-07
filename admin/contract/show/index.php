@@ -185,13 +185,13 @@
                                     $total_pages = ceil($total_rows / $no_of_records_per_page);
 
                                     //actual data
-                                    $check = $mysqli->prepare("SELECT contract.id,student.firstName,student.lastName, room.name, contract.startDate, contract.endDate, contract.price, contract.overdue  FROM `contract` join 
+                                    $check = $mysqli->prepare("SELECT student.id,contract.id,student.firstName,student.lastName, room.name, contract.startDate, contract.endDate, contract.price, contract.overdue  FROM `contract` join 
                                     student on student.id = contract.student join 
                                     room on room.id = contract.room order by endDate DESC LIMIT $offset, $no_of_records_per_page");
                                     
                                     $check->execute();
                                     $check->store_result();
-                                    $check->bind_result($id,$firstName,$lastName, $roomname, $startDate, $endDate, $price, $overdue);
+                                    $check->bind_result($studentid,$id,$firstName,$lastName, $roomname, $startDate, $endDate, $price, $overdue);
 
                                     if($check->num_rows > 0){
                                       while($row = $check->fetch()){
@@ -199,9 +199,11 @@
                           <tr>
                             <td ><?php echo " ".$id ; ?></td>
                             <td >
-                              <a class="text-dark" href="../edit/?id=<?php echo $id;?>"> <?php echo htmlspecialchars($firstName).' '.htmlspecialchars($lastName) ; ?></a>
+                              <a class="text-dark" href="../../../admin/student/edit/?id=<?php echo $studentid;?>"> <?php echo htmlspecialchars($firstName).' '.htmlspecialchars($lastName) ; ?></a>
                             </td>
-                            <td class="d-none d-md-table-cell"><?php echo htmlspecialchars($roomname) ; ?></td>
+                            <td >
+                              <a class="text-dark" > <?php echo htmlspecialchars($roomname); ?></a>
+                            </td>
                             <td class="d-none d-md-table-cell"><?php echo htmlspecialchars($startDate) ; ?></td>
                             <td class="d-none d-md-table-cell"><?php echo htmlspecialchars($endDate) ; ?>  </td>
                             <td class="d-none d-md-table-cell"><?php echo htmlspecialchars($price) ; ?>  </td>
