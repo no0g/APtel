@@ -1,7 +1,7 @@
 # :hotel: APU Hostel Management System
 
 Developed to fulfil GCS and CSS assignment   
-Status: Ongoing :sunglasses:
+Status: Supposedly Done :sunglasses:
 
 ## :computer: Deployment
 Deploy the app using XAMPP, put all files in   
