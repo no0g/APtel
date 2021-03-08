@@ -14,6 +14,14 @@ Deploy the app using XAMPP, put all files in
 - Import `.sql` file in `/sql/` 
 - Go to http://localhost/(webname)/ 
 
+Credentials:   
+- Admin
+  Email: admin@apu.edu.my   
+  Password: Admin123###   
+
+- User
+  Email: user@mail.apu.edu.my   
+  Password: User123###
 
 ## :smirk: Developer
 - Reza Ahmad Nugroho
