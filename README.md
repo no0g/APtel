@@ -41,5 +41,5 @@ Deploy the app using XAMPP, put all files in
 
 ## :pray: Credits
 HTML Templates:   
-  Landing Page: [temolatemo](https://templatemo.com/tm-522-venue)   
+  Landing Page: [templatemo](https://templatemo.com/tm-522-venue)   
   Dashboard   : [Sleek](https://github.com/tafcoder/sleek-dashboard)   
