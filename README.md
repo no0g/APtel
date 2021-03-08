@@ -38,3 +38,8 @@ Deploy the app using XAMPP, put all files in
 - Password Strength Checker :black_heart:
 - Change Password :black_heart:
 - Failed Login Attempt Email Notificaton :black_heart:
+
+## :pray: Credits
+HTML Templates:   
+  Landing Page: [temolatemo](https://templatemo.com/tm-522-venue)   
+  Dashboard   : [Sleek](https://github.com/tafcoder/sleek-dashboard)   
