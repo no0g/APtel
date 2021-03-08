@@ -195,7 +195,7 @@
 
                           <p> RM <?php echo $price?></p>
 												<p class="card-text">
-                          <a href="../edit/?id=<?php echo $roomtypeid;?>" class="btn btn-outline-primary">Edit</a>
+                          <a href="../edit/?id=<?php echo $roomtypeid;?>" class="btn btn-outline-primary btn-block">Edit</a>
 												</p>
 											</div>
 										</div>

@@ -195,7 +195,7 @@
 
                           <p> RM <?php echo $price?></p>
 												<p class="card-text">
-                          <a href="../bookings/request/" class="btn btn-outline-primary">Book Now!</a>
+                          <a href="../bookings/request/" class="btn btn-outline-primary btn-block">Book Now!</a>
 												</p>
 											</div>
 										</div>
