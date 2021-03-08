@@ -2,7 +2,7 @@
 
     session_start();
         if($_SESSION['status']!="admin"){
-          header("location:../index.php?message=not_login");
+          header("location:../../../admin/index.php?message=not_login");
         }else if(!isset($_POST['edit'])) {
         header("location:../../../admin/roomtype/show/");
         }else{

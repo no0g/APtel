@@ -1,7 +1,7 @@
 <?php
     session_start();
     if($_SESSION['status']!="admin"){
-    header("location:../../../index.php?message=not_login");
+    header("location:../../../admin/index.php?message=not_login");
     }else if(!isset($_GET['id'])) {
         header("location:../../../admin/contract/show/");
     } else{

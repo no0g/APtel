@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
 
     if(!$uppercase || !$lowercase || !$number || strlen($newPassword) < 8) {
     // tell the user something went wrong
-        header("location: ../../student/changepassword/change/?message=regex");
+        header("location: ../../../admin/changepassword/change/?message=regex");
     }
     else {
         $check = $mysqli->prepare("SELECT password FROM admin WHERE email = ? ");
