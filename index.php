@@ -166,7 +166,7 @@
                         <div class="icon">
                             <img src="assets/landing/img/service_icon_1.png" alt="">
                         </div>
-                        <h4>Well Design Rooms</h4>
+                        <h4>Well-Designed Rooms</h4>
                         <p>Our designers make sure your experience staying here will improve your study.</p>
                     </div>
                 </div>
