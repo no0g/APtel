@@ -126,7 +126,7 @@
                         </div>
                         <div class="down-content">
                             <h4><?php echo $name?></h4>
-                            <span><?php echo $name?></span>
+                            <span><?php echo $size?></span>
                             <p><?php echo $description?></p>
                             <div class="row">
                                 <div class="col-md-6 first-button">
@@ -254,8 +254,8 @@
                             <div class="col-md-6">
                                 <ul>
                                     
-                                    <li><a href="#"><i class="fa fa-stop"></i>Register</a></li>
-                                    <li><a href="#"><i class="fa fa-stop"></i>Login</a></li>
+                                    <li><a href="student/register"><i class="fa fa-stop"></i>Register</a></li>
+                                    <li><a href="student/"><i class="fa fa-stop"></i>Login</a></li>
 
                                 </ul>
                             </div>
@@ -269,7 +269,7 @@
                         </div>
                         <p>Jalan Teknologi 5, Taman Teknologi Malaysia, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur.</p>
                         <ul>
-                            <li><span>Phone:</span><a >60389961000</a></li>
+                            <li><span>Phone:</span><a >(+60) 3-899-61000</a></li>
                             <li><span>Email:</span><a >hostel@apu.edu.my</a></li>
                             
                         </ul>
