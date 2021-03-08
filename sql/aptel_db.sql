@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:9001
--- Generation Time: Mar 07, 2021 at 05:46 PM
+-- Generation Time: Mar 08, 2021 at 10:48 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -37,6 +37,13 @@ CREATE TABLE `admin` (
   `contact` varchar(1000) NOT NULL,
   `password` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `firstName`, `lastName`, `image`, `staffNumber`, `email`, `contact`, `password`) VALUES
+(1, 'Test', 'Admin', '../../assets/user/image/default.png', 'Staff009', 'admin@apu.edu.my', '0158762345', '$2y$10$2jRxDC8Jw.ZfC6NBhSZekudihDXT.nak.3LnjZv5rMq9gSYGG8b8e');
 
 -- --------------------------------------------------------
 
@@ -81,6 +88,36 @@ CREATE TABLE `log` (
   `time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `log`
+--
+
+INSERT INTO `log` (`id`, `description`, `time`) VALUES
+(1, 'new admin: ejak@apu.edu.my registered', '2021-03-07 16:48:09'),
+(2, 'admin: mamank@apu.edu.my Log In Success', '2021-03-07 16:48:25'),
+(3, 'admin: ejak@apu.edu.my Log In Success', '2021-03-07 16:52:30'),
+(4, 'new user: tp048981@mail.apu.edu.my registered', '2021-03-07 17:03:26'),
+(5, 'user: tp048981@mail.apu.edu.my Log In Success', '2021-03-07 17:03:51'),
+(6, 'user: ejak@apu.edu.my Log Out', '2021-03-07 17:25:13'),
+(7, 'admin: ejak@apu.edu.my Log In Success', '2021-03-07 18:56:11'),
+(8, 'admin: ejak@apu.edu.my Log In Success', '2021-03-08 07:01:56'),
+(9, 'user: tp048981@mail.apu.edu.my Log In Success', '2021-03-08 07:02:32'),
+(10, 'user: ejak@apu.edu.my Log Out', '2021-03-08 07:58:15'),
+(11, 'admin: ejak@apu.edu.my Log In Success', '2021-03-08 09:10:59'),
+(12, 'user: tp048981@mail.apu.edu.my Log Out', '2021-03-08 09:11:25'),
+(13, 'new user: tp048892@mail.apu.edu.my registered', '2021-03-08 09:12:29'),
+(14, 'user: ejak@apu.edu.my Log Out', '2021-03-08 09:16:37'),
+(15, 'user: tp048981@mail.apu.edu.my Log In Failed', '2021-03-08 09:24:27'),
+(16, 'user: tp048981@mail.apu.edu.my Log In Success', '2021-03-08 09:24:41'),
+(17, 'admin: ejak@apu.edu.my Log In Failed', '2021-03-08 09:25:51'),
+(18, 'admin: ejak@apu.edu.my Log In Success', '2021-03-08 09:26:17'),
+(19, 'new admin: admin@apu.edu.my registered', '2021-03-08 09:35:07'),
+(20, 'admin: admin@apu.edu.my Log In Success', '2021-03-08 09:35:36'),
+(21, 'user: admin@apu.edu.my Log Out', '2021-03-08 09:43:20'),
+(22, 'new user: user@mail.apu.edu.my registered', '2021-03-08 09:44:22'),
+(23, 'user: user@mail.apu.edu.my Log In Success', '2021-03-08 09:44:52'),
+(24, 'user: user@mail.apu.edu.my Log Out', '2021-03-08 09:47:07');
+
 -- --------------------------------------------------------
 
 --
@@ -107,6 +144,20 @@ CREATE TABLE `room` (
   `type` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`id`, `name`, `type`) VALUES
+(1, 'SPS1', 1),
+(2, 'SPS2', 1),
+(3, 'SPS3', 1),
+(4, 'PS1', 2),
+(5, 'PS2', 2),
+(6, 'PS3', 2),
+(7, 'SPT1', 3),
+(8, 'SPT2', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -121,6 +172,15 @@ CREATE TABLE `roomtype` (
   `image` varchar(1000) NOT NULL,
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `roomtype`
+--
+
+INSERT INTO `roomtype` (`id`, `name`, `size`, `Description`, `image`, `price`) VALUES
+(1, 'Super Premium - En-Suite Single', '(140+ Sqft - Larger room with fridge and table lamp)', '<p><strong>Best&nbsp;</strong>option for&nbsp;<strong><em>LONELY,RICH AND SINGLE!!!</em></strong></p>', '1.jpg', 1520),
+(2, 'Premium - En-Suite Single', '(100+ Sqft - Smaller room with table lamp)', '<p><strong>Best&nbsp;</strong><strong>budget</strong> option for <em><strong>YOU!!!</strong></em></p>', '2.jpg', 1000),
+(3, 'Super Premium - En-Suite Twin', '(240+ Sqft - Larger room with fridge and table lamp)', '<p>Afraid of sleeping alone?&nbsp;<em><strong>WE GOT YOU COVERED!!!</strong></em></p>', '3.jpg', 1320);
 
 -- --------------------------------------------------------
 
@@ -138,6 +198,13 @@ CREATE TABLE `student` (
   `contact` varchar(1000) NOT NULL,
   `password` varchar(10000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`id`, `firstName`, `lastName`, `tpnumber`, `image`, `email`, `contact`, `password`) VALUES
+(1, 'Test', 'User', 'tpuser', '../../assets/user/image/default.png', 'user@mail.apu.edu.my', '014555567', '$2y$10$xhcF3dF3mM5XsLkpsfA7WO2igB57v.KKoW1rNAfS.2OyLqVSp7U5.');
 
 --
 -- Indexes for dumped tables
@@ -205,7 +272,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `booking`
@@ -223,7 +290,7 @@ ALTER TABLE `contract`
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -235,19 +302,19 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `roomtype`
 --
 ALTER TABLE `roomtype`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -278,6 +345,14 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `room`
   ADD CONSTRAINT `room_ibfk_1` FOREIGN KEY (`type`) REFERENCES `roomtype` (`id`);
+
+DELIMITER $$
+--
+-- Events
+--
+CREATE DEFINER=`root`@`localhost` EVENT `update_overdue` ON SCHEDULE EVERY 1 MONTH STARTS '2021-03-01 15:13:06' ON COMPLETION PRESERVE ENABLE DO update contract set contract.overdue = contract.price+contract.overdue where contract.startDate <= now() and contract.endDate >= now()$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
