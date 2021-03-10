@@ -199,7 +199,7 @@
         <div class="video-overlay"></div>
         <div class="video-content">
             <div class="inner">
-                <span>Video Presentation</span>
+                <span>Experience Visualized.</span>
                 <h2>Explore the comfort life with us.</h2>
                 <a href="https://www.youtube.com/watch?v=HWkSzLO0qRw" target="_blank"><i class="fa fa-play"></i></a>
             </div>
