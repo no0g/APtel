@@ -301,13 +301,7 @@
                                     require_once '../../../config/config.php';
                                   
 
-                                    $check = $mysqli->prepare("select distinct roomtype.name from room join roomtype
-                                    on roomtype.id =room.type where room.id in (SELECT room.id FROM `contract` right join room on contract.room = room.id 
-                                    where contract.id IS NULL 
-                                    or contract.endDate < now()
-                                    EXCEPT 
-                                    SELECT room.id FROM `contract` right join room on contract.room = room.id 
-                                    where contract.endDate > now()) ");
+                                    $check = $mysqli->prepare("select distinct roomtype.name from room join roomtype on roomtype.id =room.type where room.id in(select room.id from contract right join room on contract.room = room.id where contract.id is null or contract.endDate < now()) and room.id not in (select room.id from contract right join room on contract.room = room.id where contract.id > now())");
                                     
                                     $check->execute();
                                     $check->store_result();
