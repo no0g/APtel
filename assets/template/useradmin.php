@@ -38,7 +38,7 @@
         <a href="../../changepassword"> <i class="mdi mdi-settings"></i> Change Password </a>
     </li>
     <li class="dropdown-footer">
-        <a href="../../../controller/logoutAuth.php"> <i class="mdi mdi-logout"></i> Log Out </a>
+        <a href="../../../controller/admin/logoutAuth.php"> <i class="mdi mdi-logout"></i> Log Out </a>
     </li>
     </ul>
 </li>            
