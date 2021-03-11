@@ -137,6 +137,7 @@
         <div class="content-wrapper">
           <div class="content">							<div class="breadcrumb-wrapper">
           <h1>Contract Lists</h1>
+          
 								
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb p-0">
@@ -153,6 +154,9 @@
                   <div class="card card-table-border-none" id="recent-orders">
                     <div class="card-header justify-content-between">
                       <h2>Contracts</h2>
+                      <a class="btn btn-primary" href="../../../controller/admin/pdf/contractreport.php"  type="button" id="dropdownMenuButton"  aria-expanded="false" data-display="static">
+													Generate Report 
+                      </a>
                     </div>
                     <div class="card-body pt-0 pb-5">
                       <table class="table card-table table-hover table-responsive table-responsive-large" style="width:100%">

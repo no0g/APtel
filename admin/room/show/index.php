@@ -151,6 +151,9 @@
                   <div class="card card-table-border-none" id="recent-orders">
                     <div class="card-header justify-content-between">
                       <h2>Rooms</h2>
+                      <a class="btn btn-primary" href="../../../controller/admin/pdf/roomreport.php"  type="button" id="dropdownMenuButton"  aria-expanded="false" data-display="static">
+													Generate Report 
+                      </a>
                       <div class="dropdown d-inline-block mb-1">
 												<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
 													Room Type Filter
