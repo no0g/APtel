@@ -53,7 +53,7 @@
     
             // Write some HTML code:
             $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
-            $filename = 'Contract '.$id.'.pdf';
+            $filename = 'Contract Report.pdf';
             // Output a PDF file directly to the browser
             $mpdf->Output($filename,'I');
         }

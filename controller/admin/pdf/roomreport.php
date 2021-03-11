@@ -13,7 +13,7 @@
         $check->execute();
         $check->store_result();
         $check->bind_result($id,$roomname,$roomtype);
-        $html = '<h1>Booking Report</h1>
+        $html = '<h1>Room Report</h1>
         <table style="width:100%">
         <tr>
             <th>Room ID</th>
@@ -56,7 +56,7 @@
     
             // Write some HTML code:
             $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
-            $filename = 'Contract '.$id.'.pdf';
+            $filename = 'Room Report.pdf';
             // Output a PDF file directly to the browser
             $mpdf->Output($filename,'I');
         }
