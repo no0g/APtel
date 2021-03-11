@@ -213,21 +213,22 @@
 
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <?php
-                             require_once '../../../config/config.php';
-                             $email = $_SESSION['email'];
-                             
-                             $check = $mysqli->prepare("SELECT firstName,lastName,image FROM student WHERE email = ? ");
-                             $check->bind_param('s', $email);
-                             $check->execute();
-                             $check->store_result();
-                             $check->bind_result($firstName,$lastName,$image);
-                      
-                             if($check->num_rows > 0){
-                              while($row = $check->fetch()){
-                                  // $firstName=$row=['firstName'];
-                                  // $lastName=$row['lastName'];
-                                  // $image=$row['image'];
-                  
+
+                            require_once '../../../config/config.php';
+                            $email = $_SESSION['email'];
+                            
+                            $check = $mysqli->prepare("SELECT firstName,lastName,image FROM student WHERE email = ? ");
+                            $check->bind_param('s', $email);
+                            $check->execute();
+                            $check->store_result();
+                            $check->bind_result($firstName,$lastName,$image);
+                    
+                            if($check->num_rows > 0){
+                            while($row = $check->fetch()){
+                                // $firstName=$row=['firstName'];
+                                // $lastName=$row['lastName'];
+                                // $image=$row['image'];
+                
                   ?>
                       <img src=<?php echo "../".$image;?> class="user-image" alt="User Image" />
                       <span class="d-none d-lg-inline-block"><?php echo htmlspecialchars($firstName) . " " . htmlspecialchars($lastName); ?> </span>
@@ -298,20 +299,29 @@
 															<label for="city">Room Type</label>
 															<select name="roomtype" class="form-control" id="exampleFormControlSelect12">
                                 <?php
+                                    $type="";
+                                    if(isset($_GET['type'])){
+                                        $type = $_GET['type'];
+                                    }
+                                    
                                     require_once '../../../config/config.php';
                                   
 
-                                    $check = $mysqli->prepare("select distinct roomtype.name from room join roomtype on roomtype.id =room.type where room.id in(select room.id from contract right join room on contract.room = room.id where contract.id is null or contract.endDate < now()) and room.id not in (select room.id from contract right join room on contract.room = room.id where contract.id > now())");
+                                    $check = $mysqli->prepare("select distinct roomtype.id,roomtype.name from room join roomtype on roomtype.id =room.type where room.id in(select room.id from contract right join room on contract.room = room.id where contract.id is null or contract.endDate < now()) and room.id not in (select room.id from contract right join room on contract.room = room.id where contract.id > now())");
                                     
                                     $check->execute();
                                     $check->store_result();
-                                    $check->bind_result($name);
+                                    $check->bind_result($rtid,$name);
                                     
                                     if($check->num_rows > 0){
                                       while($row = $check->fetch()){
+                                        $typ="";
+                                        if($type == $rtid){
+                                            $typ="selected";
+                                        }
 
                                  ?>
-														    <option><?php echo $name; ?></option>
+														    <option <?php echo $typ?>><?php echo $name; ?></option>
                                 <?php } $check->close();} ?>
 													    </select>
 														</div>
