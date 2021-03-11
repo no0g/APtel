@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
     
 
     //Get student id
-    $check = $mysqli->prepare("SELECT student.id FROM student WHERE student.email = ? except select student.id from booking join student on booking.student = student.id WHERE booking.status = 'waiting' ");
+    $check = $mysqli->prepare("SELECT student.id FROM student WHERE student.email = ? and student.id not in  (select student.id from booking join student on booking.student = student.id WHERE booking.status = 'waiting') ");
     $check->bind_param('s', $email);
     $check->execute();
     $check->store_result();

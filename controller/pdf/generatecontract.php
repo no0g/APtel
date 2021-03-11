@@ -26,55 +26,59 @@ if(isset($_GET['id'])){
       while($row = $check->fetch()){
     
         $html='
-
+        
         <h1>Contract</h1>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="fname">First name</label>
-                    <input type="text" class="form-control" value='.htmlspecialchars($firstName).' readonly>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="lname">Last name</label>
-                    <input type="text" class="form-control" value='.htmlspecialchars($lastName).' readonly>
-                </div>
-        </div>
-        <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="city">Room </label>
-                    <input type="text" class="form-control" value='.htmlspecialchars($roomname).' readonly>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="city">Price</label>
-                    <input type="text" class="form-control" placeholder=price value="RM '.htmlspecialchars($price).'" readonly >
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="State">Start Date</label>
-                            <input type="date" class="form-control" value='.htmlspecialchars($startDate).'  readonly>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="Zip">End Date</label>
-                            <input type="date" class="form-control" value='.htmlspecialchars($startDate).' readonly>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <table style="width:100%">
+            <tr>
+                <th>Contract ID: </th>
+                <td>'.htmlspecialchars($id).'</td>
+
+            </tr>
+            <tr>
+                <th>First Name: </th>
+                <td>'.htmlspecialchars($firstName).'</td>
+
+
+            </tr>
+            <tr>
+                <th>Last Name: </th>
+                <td>'.htmlspecialchars($lastName).'</td>
+
+            </tr>
+            </tr>
+            <tr>
+                <th>Room Name: </th>
+                <td>'.htmlspecialchars($roomname).'</td>
+
+            </tr>
+            <tr>
+                <th>Price: </th>
+                <td>'.htmlspecialchars($price).'</td>
+
+            </tr>
+            <tr>
+                <th>Start Date: </th>
+                <td>'.htmlspecialchars($startDate).'</td>
+
+            </tr>
+            <tr>
+                <th>End Date: </th>
+                <td>'.htmlspecialchars($endDate).'</td>
+
+        </tr>
+
+        </table>
+        <span><br>*This contract is computer generated, no signature is required</span>
         ';
         //Set title
         $mpdf->SetTitle('Contract '.$id);
+        // CSS
+        $stylesheet = file_get_contents('style.css');
+
+        $mpdf->WriteHTML($stylesheet,\Mpdf\HTMLParserMode::HEADER_CSS);
+
         // Write some HTML code:
-        $mpdf->WriteHTML($html);
+        $mpdf->WriteHTML($html,\Mpdf\HTMLParserMode::HTML_BODY);
         $filename = 'Contract '.$id.'.pdf';
         // Output a PDF file directly to the browser
         $mpdf->Output($filename,'I');
