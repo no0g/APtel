@@ -39,7 +39,8 @@
                         </div></a>
                         <nav id="primary-nav" class="dropdown cf">
                             <ul class="dropdown menu">
-                                <li><a href="student"  href="#">Log In</a></li>
+                                <li><a href="student"  href="#"><b>Log In or Register</b></a></li>
+                                
                             </ul>
                         </nav><!-- / #primary-nav -->
                     </div>
@@ -131,12 +132,12 @@
                             <div class="row">
                                 <div class="col-md-6 first-button">
                                     <div class="text-button">
-                                        <a href="student/register">Register</a>
+                                        <a href="student/bookings/request/?type=<?php echo $roomtypeid?>">Book Now</a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="text-button">
-                                        <a href="student">Login</a>
+                                        <a href="student/register">Register</a>
                                     </div>
                                 </div>
                             </div>
