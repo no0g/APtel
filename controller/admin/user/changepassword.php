@@ -13,11 +13,12 @@ if(isset($_POST['submit'])){
         header("location: ../../../admin/changepassword/change/?message=notsame");
         
     }
+    $symbol    = preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $newPassword);
     $uppercase = preg_match('@[A-Z]@', $newPassword);
     $lowercase = preg_match('@[a-z]@', $newPassword);
     $number    = preg_match('@[0-9]@', $newPassword);
 
-    if(!$uppercase || !$lowercase || !$number || strlen($newPassword) < 8) {
+    if(!$symbol || !$uppercase || !$lowercase || !$number || strlen($newPassword) < 8) {
     // tell the user something went wrong
         header("location: ../../../admin/changepassword/change/?message=regex");
     }
