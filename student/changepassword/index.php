@@ -182,6 +182,7 @@
                                               <li>- Must contain at least 1 number</li>
                                               <li>- Must contain at least one uppercase character</li>
                                               <li>- Must contain at least one lowercase character</li>
+                                              <li>- Must contain at least one special character</li>
                                             </ul>
                                             <button type="button" class="close" data-dismiss="alert">&times;</button>
                                         </div>
