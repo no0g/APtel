@@ -38,6 +38,14 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <script src="../../assets/plugins/nprogress/nprogress.js"></script>
+    <?php 
+    session_start();
+        if($_SESSION['status']=="login"){
+          header("location:../roomtype");
+       } else if($_SESSION['status']=="admin"){
+        header("location:../../admin/roomtype");
+     }
+    ?>
 </head>
   <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
