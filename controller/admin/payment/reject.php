@@ -46,7 +46,7 @@
             
             $to = "$studentemail";    
             $from= "noreply@hostel.apu.edu.my";
-            $subject = "Booking Rejected";    
+            $subject = "Payment Rejected";    
             $message = "Your Payment for \nContractID: {$contractid}\nRoom: {$roomname}\nAmount: {$amount}\nHas been accepted, you current overdue is RM {$overdue}";            $headers = "From:" . $from . "\r\n";
             if(mail($to,$subject,$message, $headers)){
                 
